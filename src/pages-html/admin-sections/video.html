@@ -1,0 +1,38 @@
+      
+        <div class="admin-card">
+          <div class="admin-card-header">Upload Video</div>
+          <div class="admin-card-body">
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Video Title *</label><input type="text" id="vidTitle" placeholder="e.g. Liberia Investment Forum 2026 Highlights"></div>
+              <div class="admin-form-group"><label>Category</label><select><option>Business</option><option>Economy</option><option>Finance</option><option>Interview</option><option>Event Coverage</option><option>Documentary</option></select></div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Video Source</label><select id="vidSource"><option value="upload">Upload File</option><option value="youtube">YouTube URL</option><option value="vimeo">Vimeo URL</option></select></div>
+              <div class="admin-form-group"><label>Publish Date</label><input type="date"></div>
+            </div>
+            <div class="admin-form-group" id="vidUploadArea"><label>Video File</label>
+              <div class="file-upload-area">
+                <div class="upload-icon">🎬</div>
+                <p>Click to upload video file</p>
+                <span>MP4 · Max 2GB · HD recommended</span>
+                <input type="file" accept="video/*">
+              </div>
+            </div>
+            <div class="admin-form-group" id="vidUrlArea" style="display:none;"><label>Video URL</label><input type="url" placeholder="https://www.youtube.com/watch?v=..."></div>
+            <div class="admin-form-group"><label>Description *</label><textarea id="vidDesc" placeholder="Describe the video content..."></textarea></div>
+            <div class="admin-form-group"><label>Thumbnail Image</label>
+              <div class="file-upload-area">
+                <div class="upload-icon">🖼️</div>
+                <p>Upload video thumbnail</p>
+                <span>JPG or PNG · 1280×720px recommended</span>
+                <input type="file" accept="image/*">
+              </div>
+            </div>
+            <div class="admin-btn-row">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Video →</button>
+            </div>
+          </div>
+        </div>
+      </div>
