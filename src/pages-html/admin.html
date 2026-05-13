@@ -11,7 +11,7 @@
       <div class="login-error" id="loginError">Incorrect username or password. Please try again.</div>
       <div class="form-group"><label>Username</label><input type="text" id="adminUser" placeholder="admin"></div>
       <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-      <button class="btn-send" style="margin-top:.5rem;" onclick="doLogin()">Sign In →</button>
+      <button class="btn-send" style="margin-top:.5rem;">Sign In →</button>
       <p style="font-size:11.5px;color:var(--text-light);text-align:center;margin-top:1rem;">Demo: username <strong>admin</strong> / password <strong>lbh2026</strong></p>
     </div>
   </div>
@@ -21,13 +21,13 @@
     <div class="admin-nav">
       <div class="a-brand">LBH <span>Admin</span></div>
       <div class="admin-nav-links">
-        <a class="active" onclick="switchAdminTab('dashboard',this)">Dashboard</a>
-        <a onclick="switchAdminTab('news',this)">Add News / Story</a>
-        <a onclick="switchAdminTab('podcast',this)">Add Podcast</a>
-        <a onclick="switchAdminTab('video',this)">Add Video</a>
-        <a onclick="switchAdminTab('manage',this)">Manage Content</a>
+        <a class="active">Dashboard</a>
+        <a>Add News / Story</a>
+        <a>Add Podcast</a>
+        <a>Add Video</a>
+        <a>Manage Content</a>
       </div>
-      <button class="admin-logout" onclick="doLogout()">Sign Out</button>
+      <button class="admin-logout">Sign Out</button>
     </div>
 
     <div class="admin-body">
@@ -72,7 +72,7 @@
             <div class="admin-form-group"><label>Summary / Excerpt *</label><textarea id="newsSummary" placeholder="Write a short summary that appears on listing pages..."></textarea></div>
             <div class="admin-form-group"><label>Full Article Body</label><textarea style="height:200px;" placeholder="Write the full article content here..."></textarea></div>
             <div class="admin-form-group"><label>Cover Image</label>
-              <div class="file-upload-area" onclick="this.querySelector('input').click()">
+              <div class="file-upload-area">
                 <div class="upload-icon">📷</div>
                 <p>Click to upload cover image</p>
                 <span>JPG, PNG up to 5MB · Recommended: 1200×800px</span>
@@ -85,8 +85,8 @@
             </div>
             <div class="admin-btn-row">
               <button class="btn-cancel">Cancel</button>
-              <button class="btn-save-draft" onclick="showToast('Draft saved!')">Save as Draft</button>
-              <button class="btn-publish" onclick="publishContent('news')">Publish Now →</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Now →</button>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
             <div class="admin-form-group"><label>Show Notes / Transcript</label><textarea style="height:160px;" placeholder="Full show notes, guest names, timestamps, links..."></textarea></div>
             <div class="admin-form-row">
               <div class="admin-form-group"><label>Audio File (MP3/WAV)</label>
-                <div class="file-upload-area" onclick="this.querySelector('input').click()">
+                <div class="file-upload-area">
                   <div class="upload-icon">🎙️</div>
                   <p>Click to upload audio recording</p>
                   <span>MP3 or WAV · Max 200MB</span>
@@ -117,7 +117,7 @@
                 </div>
               </div>
               <div class="admin-form-group"><label>Episode Thumbnail</label>
-                <div class="file-upload-area" onclick="this.querySelector('input').click()">
+                <div class="file-upload-area">
                   <div class="upload-icon">🖼️</div>
                   <p>Click to upload episode image</p>
                   <span>JPG or PNG · 600×600px recommended</span>
@@ -135,8 +135,8 @@
             </div>
             <div class="admin-btn-row">
               <button class="btn-cancel">Cancel</button>
-              <button class="btn-save-draft" onclick="showToast('Draft saved!')">Save as Draft</button>
-              <button class="btn-publish" onclick="publishContent('podcast')">Publish Episode →</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Episode →</button>
             </div>
           </div>
         </div>
@@ -152,11 +152,11 @@
               <div class="admin-form-group"><label>Category</label><select><option>Business</option><option>Economy</option><option>Finance</option><option>Interview</option><option>Event Coverage</option><option>Documentary</option></select></div>
             </div>
             <div class="admin-form-row">
-              <div class="admin-form-group"><label>Video Source</label><select id="vidSource" onchange="toggleVideoSource()"><option value="upload">Upload File</option><option value="youtube">YouTube URL</option><option value="vimeo">Vimeo URL</option></select></div>
+              <div class="admin-form-group"><label>Video Source</label><select id="vidSource"><option value="upload">Upload File</option><option value="youtube">YouTube URL</option><option value="vimeo">Vimeo URL</option></select></div>
               <div class="admin-form-group"><label>Publish Date</label><input type="date"></div>
             </div>
             <div class="admin-form-group" id="vidUploadArea"><label>Video File</label>
-              <div class="file-upload-area" onclick="this.querySelector('input').click()">
+              <div class="file-upload-area">
                 <div class="upload-icon">🎬</div>
                 <p>Click to upload video file</p>
                 <span>MP4 · Max 2GB · HD recommended</span>
@@ -166,7 +166,7 @@
             <div class="admin-form-group" id="vidUrlArea" style="display:none;"><label>Video URL</label><input type="url" placeholder="https://www.youtube.com/watch?v=..."></div>
             <div class="admin-form-group"><label>Description *</label><textarea id="vidDesc" placeholder="Describe the video content..."></textarea></div>
             <div class="admin-form-group"><label>Thumbnail Image</label>
-              <div class="file-upload-area" onclick="this.querySelector('input').click()">
+              <div class="file-upload-area">
                 <div class="upload-icon">🖼️</div>
                 <p>Upload video thumbnail</p>
                 <span>JPG or PNG · 1280×720px recommended</span>
@@ -175,8 +175,8 @@
             </div>
             <div class="admin-btn-row">
               <button class="btn-cancel">Cancel</button>
-              <button class="btn-save-draft" onclick="showToast('Draft saved!')">Save as Draft</button>
-              <button class="btn-publish" onclick="publishContent('video')">Publish Video →</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Video →</button>
             </div>
           </div>
         </div>
@@ -190,10 +190,10 @@
             <table class="content-table">
               <thead><tr><th>Title</th><th>Type</th><th>Category</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
               <tbody id="contentTableBody">
-                <tr><td>2026 National Budget Analysis</td><td>Podcast</td><td>Economy</td><td>Apr 19</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete" onclick="deleteRow(this)">Delete</button></div></td></tr>
-                <tr><td>CBL Announces Digital Currency Pilot</td><td>News</td><td>Finance</td><td>Apr 22</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete" onclick="deleteRow(this)">Delete</button></div></td></tr>
-                <tr><td>Record Rice Harvest Predicted</td><td>News</td><td>Agriculture</td><td>Apr 21</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete" onclick="deleteRow(this)">Delete</button></div></td></tr>
-                <tr><td>Liberia Investment Forum Recap</td><td>Video</td><td>Business</td><td>Apr 20</td><td><span class="status-badge status-draft">Draft</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete" onclick="deleteRow(this)">Delete</button></div></td></tr>
+                <tr><td>2026 National Budget Analysis</td><td>Podcast</td><td>Economy</td><td>Apr 19</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>CBL Announces Digital Currency Pilot</td><td>News</td><td>Finance</td><td>Apr 22</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>Record Rice Harvest Predicted</td><td>News</td><td>Agriculture</td><td>Apr 21</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>Liberia Investment Forum Recap</td><td>Video</td><td>Business</td><td>Apr 20</td><td><span class="status-badge status-draft">Draft</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
               </tbody>
             </table>
           </div>
