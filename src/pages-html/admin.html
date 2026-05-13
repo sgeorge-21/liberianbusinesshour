@@ -1,0 +1,206 @@
+<div class="page" id="page-admin">
+  <!-- Login Screen -->
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-box">
+      <div class="admin-logo">
+        <div class="big">The Liberian Business Hour</div>
+        <span>Administrator Portal</span>
+      </div>
+      <h2>Sign In</h2>
+      <p>Access is restricted to authorized administrators only.</p>
+      <div class="login-error" id="loginError">Incorrect username or password. Please try again.</div>
+      <div class="form-group"><label>Username</label><input type="text" id="adminUser" placeholder="admin"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="btn-send" style="margin-top:.5rem;">Sign In →</button>
+      <p style="font-size:11.5px;color:var(--text-light);text-align:center;margin-top:1rem;">Demo: username <strong>admin</strong> / password <strong>lbh2026</strong></p>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-nav">
+      <div class="a-brand">LBH <span>Admin</span></div>
+      <div class="admin-nav-links">
+        <a class="active">Dashboard</a>
+        <a>Add News / Story</a>
+        <a>Add Podcast</a>
+        <a>Add Video</a>
+        <a>Manage Content</a>
+      </div>
+      <button class="admin-logout">Sign Out</button>
+    </div>
+
+    <div class="admin-body">
+      <!-- Dashboard -->
+      <div class="admin-section active" id="admin-dashboard">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:1.5rem;">Welcome back, Admin</h2>
+        <div class="stats-grid">
+          <div class="stat-box"><div class="s-label">Published Articles</div><div class="s-val">48</div><div class="s-sub">↑ 3 this week</div></div>
+          <div class="stat-box"><div class="s-label">Podcast Episodes</div><div class="s-val">50+</div><div class="s-sub">Latest: EP 48</div></div>
+          <div class="stat-box"><div class="s-label">Videos Published</div><div class="s-val">12</div><div class="s-sub">↑ 1 this week</div></div>
+          <div class="stat-box"><div class="s-label">Newsletter Subscribers</div><div class="s-val">2.4K</div><div class="s-sub">↑ 120 this month</div></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-header">Recent Activity <span class="badge">Live</span></div>
+          <div class="admin-card-body">
+            <table class="content-table">
+              <thead><tr><th>Title</th><th>Type</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody id="recentActivity">
+                <tr><td>2026 National Budget Analysis</td><td>Podcast</td><td>Apr 19, 2026</td><td><span class="status-badge status-published">Published</span></td></tr>
+                <tr><td>CBL Announces Digital Currency Pilot</td><td>News</td><td>Apr 22, 2026</td><td><span class="status-badge status-published">Published</span></td></tr>
+                <tr><td>Record Rice Harvest Predicted</td><td>News</td><td>Apr 21, 2026</td><td><span class="status-badge status-published">Published</span></td></tr>
+                <tr><td>Liberia Investment Forum Recap</td><td>Video</td><td>Apr 20, 2026</td><td><span class="status-badge status-draft">Draft</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add News/Story -->
+      <div class="admin-section" id="admin-news">
+        <div class="admin-card">
+          <div class="admin-card-header">Publish News Article or Story</div>
+          <div class="admin-card-body">
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Article Title *</label><input type="text" id="newsTitle" placeholder="Enter headline..."></div>
+              <div class="admin-form-group"><label>Category *</label><select id="newsCat"><option>Business</option><option>Economy</option><option>Finance</option><option>Trade</option><option>Agriculture</option><option>Entrepreneurship</option><option>Feature</option><option>Opinion</option><option>Investigative</option></select></div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Author Name</label><input type="text" placeholder="e.g. James T. Worquea III"></div>
+              <div class="admin-form-group"><label>Read Time (minutes)</label><input type="number" placeholder="5" min="1"></div>
+            </div>
+            <div class="admin-form-group"><label>Summary / Excerpt *</label><textarea id="newsSummary" placeholder="Write a short summary that appears on listing pages..."></textarea></div>
+            <div class="admin-form-group"><label>Full Article Body</label><textarea style="height:200px;" placeholder="Write the full article content here..."></textarea></div>
+            <div class="admin-form-group"><label>Cover Image</label>
+              <div class="file-upload-area">
+                <div class="upload-icon">📷</div>
+                <p>Click to upload cover image</p>
+                <span>JPG, PNG up to 5MB · Recommended: 1200×800px</span>
+                <input type="file" accept="image/*">
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Tags (comma-separated)</label><input type="text" placeholder="e.g. CBL, digital currency, banking"></div>
+              <div class="admin-form-group"><label>Featured?</label><select><option>No</option><option>Yes – Homepage Hero</option><option>Yes – Section Feature</option></select></div>
+            </div>
+            <div class="admin-btn-row">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Now →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Podcast -->
+      <div class="admin-section" id="admin-podcast">
+        <div class="admin-card">
+          <div class="admin-card-header">Upload Podcast Episode</div>
+          <div class="admin-card-body">
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Episode Title *</label><input type="text" id="podTitle" placeholder="e.g. 2026 Budget Analysis: What Business Must Know"></div>
+              <div class="admin-form-group"><label>Episode Number</label><input type="number" placeholder="e.g. 49" min="1"></div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Air Date</label><input type="date"></div>
+              <div class="admin-form-group"><label>Duration (minutes)</label><input type="number" placeholder="45" min="1"></div>
+            </div>
+            <div class="admin-form-group"><label>Episode Description *</label><textarea id="podDesc" placeholder="Describe what this episode covers..."></textarea></div>
+            <div class="admin-form-group"><label>Show Notes / Transcript</label><textarea style="height:160px;" placeholder="Full show notes, guest names, timestamps, links..."></textarea></div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Audio File (MP3/WAV)</label>
+                <div class="file-upload-area">
+                  <div class="upload-icon">🎙️</div>
+                  <p>Click to upload audio recording</p>
+                  <span>MP3 or WAV · Max 200MB</span>
+                  <input type="file" accept="audio/*">
+                </div>
+              </div>
+              <div class="admin-form-group"><label>Episode Thumbnail</label>
+                <div class="file-upload-area">
+                  <div class="upload-icon">🖼️</div>
+                  <p>Click to upload episode image</p>
+                  <span>JPG or PNG · 600×600px recommended</span>
+                  <input type="file" accept="image/*">
+                </div>
+              </div>
+            </div>
+            <div class="admin-form-group"><label>Platforms (select all that apply)</label>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem;">
+                <label style="display:flex;align-items:center;gap:.4rem;font-weight:400;font-size:13.5px;"><input type="checkbox" checked> Website</label>
+                <label style="display:flex;align-items:center;gap:.4rem;font-weight:400;font-size:13.5px;"><input type="checkbox"> Spotify</label>
+                <label style="display:flex;align-items:center;gap:.4rem;font-weight:400;font-size:13.5px;"><input type="checkbox"> Apple Podcasts</label>
+                <label style="display:flex;align-items:center;gap:.4rem;font-weight:400;font-size:13.5px;"><input type="checkbox"> YouTube</label>
+              </div>
+            </div>
+            <div class="admin-btn-row">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Episode →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Video -->
+      <div class="admin-section" id="admin-video">
+        <div class="admin-card">
+          <div class="admin-card-header">Upload Video</div>
+          <div class="admin-card-body">
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Video Title *</label><input type="text" id="vidTitle" placeholder="e.g. Liberia Investment Forum 2026 Highlights"></div>
+              <div class="admin-form-group"><label>Category</label><select><option>Business</option><option>Economy</option><option>Finance</option><option>Interview</option><option>Event Coverage</option><option>Documentary</option></select></div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group"><label>Video Source</label><select id="vidSource"><option value="upload">Upload File</option><option value="youtube">YouTube URL</option><option value="vimeo">Vimeo URL</option></select></div>
+              <div class="admin-form-group"><label>Publish Date</label><input type="date"></div>
+            </div>
+            <div class="admin-form-group" id="vidUploadArea"><label>Video File</label>
+              <div class="file-upload-area">
+                <div class="upload-icon">🎬</div>
+                <p>Click to upload video file</p>
+                <span>MP4 · Max 2GB · HD recommended</span>
+                <input type="file" accept="video/*">
+              </div>
+            </div>
+            <div class="admin-form-group" id="vidUrlArea" style="display:none;"><label>Video URL</label><input type="url" placeholder="https://www.youtube.com/watch?v=..."></div>
+            <div class="admin-form-group"><label>Description *</label><textarea id="vidDesc" placeholder="Describe the video content..."></textarea></div>
+            <div class="admin-form-group"><label>Thumbnail Image</label>
+              <div class="file-upload-area">
+                <div class="upload-icon">🖼️</div>
+                <p>Upload video thumbnail</p>
+                <span>JPG or PNG · 1280×720px recommended</span>
+                <input type="file" accept="image/*">
+              </div>
+            </div>
+            <div class="admin-btn-row">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-save-draft">Save as Draft</button>
+              <button class="btn-publish">Publish Video →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manage Content -->
+      <div class="admin-section" id="admin-manage">
+        <div class="admin-card">
+          <div class="admin-card-header">All Published Content <span class="badge" id="contentCount">4</span></div>
+          <div class="admin-card-body" style="padding:0;">
+            <table class="content-table">
+              <thead><tr><th>Title</th><th>Type</th><th>Category</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="contentTableBody">
+                <tr><td>2026 National Budget Analysis</td><td>Podcast</td><td>Economy</td><td>Apr 19</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>CBL Announces Digital Currency Pilot</td><td>News</td><td>Finance</td><td>Apr 22</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>Record Rice Harvest Predicted</td><td>News</td><td>Agriculture</td><td>Apr 21</td><td><span class="status-badge status-published">Published</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+                <tr><td>Liberia Investment Forum Recap</td><td>Video</td><td>Business</td><td>Apr 20</td><td><span class="status-badge status-draft">Draft</span></td><td><div class="action-btns"><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
